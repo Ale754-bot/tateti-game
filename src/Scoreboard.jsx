@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import GameBoard from "./GameBoard";
 
 const Scoreboard = ({ players, scores }) => {
   const panelStyle =
@@ -9,7 +10,8 @@ const Scoreboard = ({ players, scores }) => {
 
   return (
     <motion.div
-      className="text-white flex flex-col sm:flex-row items-center justify-center gap-4"
+      layout
+      className="flex flex-col lg:flex-col lg:items-end items-center gap-4 text-white w-full lg:w-auto"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
@@ -43,4 +45,13 @@ const Scoreboard = ({ players, scores }) => {
   );
 };
 
-export default Scoreboard;
+const GameSection = ({ players, scores }) => {
+  return (
+    <div className="grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-6 items-start px-4 py-6">
+      <GameBoard />
+      <Scoreboard players={players} scores={scores} />
+    </div>
+  );
+};
+
+export default GameSection;
