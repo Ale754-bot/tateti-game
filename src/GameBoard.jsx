@@ -75,7 +75,7 @@ const GameBoard = ({ players, scores, setScores, setWinner }) => {
             🔹 Turno de: {players[turn]}
           </motion.div>
 
-<div className="grid grid-cols-3 gap-2 p-4 sm:p-8 max-w-xs sm:max-w-md mx-auto">
+          <div className="grid grid-cols-3 gap-5">
             {board.map((cell, i) => (
               <motion.div
                 key={i}
