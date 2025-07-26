@@ -48,18 +48,18 @@ const GameBoard = ({ players, scores, setScores, setWinner }) => {
       transition={{ duration: 0.6 }}
       style={{
         backgroundImage:
-          'radial-gradient(circle at center, rgba(0,255,255,0.08), transparent), url(/assets/background-board.png)',
+          'radial-gradient(circle at center, rgba(29, 31, 32, 0.99), transparent)',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
         backgroundBlendMode: 'screen',
-        boxShadow: '0 0 60px rgba(0,255,255,0.3), inset 0 0 20px rgba(255,0,150,0.15)',
+        boxShadow: '0 0 60px rgba(0,255,255,0.3), inset 0 0 20px rgba(255, 0, 149, 0.15)',
         borderRadius: '1rem',
       }}
     >
       {/* Logo arriba */}
       <img
-        src="/public/TATETI.png"
+        src="/TATETI.png"
         alt="Logo U-MA-PIN"
         className="w-40 animate-pulse drop-shadow-[0_0_14px_rgba(255,0,150,0.5)] mb-2"
       />
@@ -69,7 +69,7 @@ const GameBoard = ({ players, scores, setScores, setWinner }) => {
         {/* Tablero y turno */}
         <div className="flex flex-col items-center gap-3">
           <motion.div
-            className="text-base font-semibold text-cyan-300 tracking-wide animate-pulse mb-1"
+            className="text-base font-semibold text-white tracking-wide animate-pulse mb-1"
             transition={{ repeat: Infinity, duration: 1 }}
           >
             🔹 Turno de: {players[turn]}

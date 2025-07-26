@@ -18,8 +18,8 @@ export default function App() {
       className="min-h-screen relative flex flex-col items-center justify-center text-white overflow-hidden px-4"
       style={{
         backgroundImage: `
-          radial-gradient(circle at center, rgba(0,255,255,0.08), transparent),
-          url(/assets/background-board.png)
+          radial-gradient(circle at center, rgba(1, 69, 156, 0.79), transparent),
+          url(/bg.jpg)
         `,
         backgroundColor: "#0b0c2c",
         backgroundSize: "cover",

@@ -22,7 +22,7 @@ export default function StartScreen({ onStart }) {
     >
       {/* LOGO U-MA-PIN */}
       <img
-        src="/public/TATETI.png"
+        src="/TATETI.png"
         alt="Logo U-MA-PIN"
         className="w-48 mx-auto mb-6 drop-shadow-[0_0_16px_rgba(0,255,255,0.4)] animate-pulse"
       />
@@ -49,7 +49,7 @@ export default function StartScreen({ onStart }) {
           whileTap={{ scale: 0.95 }}
           className="mt-4 px-6 py-2 rounded-full font-bold text-white bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-500 shadow-[0_0_20px_rgba(255,255,255,0.2)] hover:shadow-pink-500/40 transition-all"
         >
-          Comenzar partida
+          Comenzar partida 🚀
         </motion.button>
       </form>
     </motion.div>

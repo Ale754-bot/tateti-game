@@ -5,7 +5,7 @@ const VictoryScreen = ({ winnerName, onRestart }) => {
 
   return (
     <motion.div
-      className="absolute inset-0 flex flex-col items-center justify-center px-6 bg-gradient-to-br from-indigo-900 via-purple-900 to-gray-900 text-white z-10"
+      className="absolute inset-0 flex flex-col items-center justify-center px-6 radial-gradient(circle at center, rgba(0, 8, 19, 0.79), transparent) text-white z-10"
       initial={{ opacity: 0, scale: 0.95 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.8 }}
@@ -19,7 +19,7 @@ const VictoryScreen = ({ winnerName, onRestart }) => {
         animate={{ y: 0, opacity: 1 }}
         transition={{ delay: 0.4 }}
       >
-        {isDraw ? "🌀 PARTIDA EMPATADA" : "🚀 ¡PALIZA PAPÁ!"}
+        {isDraw ? "🌀 PARTIDA EMPATADA" : "¡PALIZA PAPÁ!"}
       </motion.h1>
 
       {/* Mensaje de ganador o empate */}
