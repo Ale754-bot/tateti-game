@@ -12,24 +12,22 @@ const GameBoard = ({ players, scores, setScores, setWinner }) => {
   ];
 
   useEffect(() => {
-  let hasWinner = false;
+    let hasWinner = false;
 
-  for (let combo of winningCombos) {
-    const [a, b, c] = combo;
-    if (board[a] && board[a] === board[b] && board[a] === board[c]) {
-      setWinner(board[a]);
-      setScores(prev => ({ ...prev, [board[a]]: prev[board[a]] + 1 }));
-      hasWinner = true;
-      break; // 🔒 cortamos la evaluación
+    for (let combo of winningCombos) {
+      const [a, b, c] = combo;
+      if (board[a] && board[a] === board[b] && board[a] === board[c]) {
+        setWinner(board[a]);
+        setScores(prev => ({ ...prev, [board[a]]: prev[board[a]] + 1 }));
+        hasWinner = true;
+        break;
+      }
     }
-  }
 
-  // 🟣 Detectar empate solo si no hubo ganador
-  if (!hasWinner && board.every(cell => cell !== "")) {
-    setWinner("draw");
-  }
-}, [board]);
-
+    if (!hasWinner && board.every(cell => cell !== "")) {
+      setWinner("draw");
+    }
+  }, [board]);
 
   const handleClick = (i) => {
     if (!board[i]) {
@@ -42,7 +40,7 @@ const GameBoard = ({ players, scores, setScores, setWinner }) => {
 
   return (
     <motion.div
-      className="flex flex-col items-center p-6 gap-6 w-full max-w-5xl rounded-xl backdrop-blur-md"
+      className="flex flex-col items-center w-full px-4 sm:px-6 p-6 gap-6 max-w-5xl rounded-xl backdrop-blur-md"
       initial={{ opacity: 0, scale: 0.95 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.6 }}
@@ -61,12 +59,11 @@ const GameBoard = ({ players, scores, setScores, setWinner }) => {
       <img
         src="/TATETI.png"
         alt="Logo U-MA-PIN"
-        className="w-40 animate-pulse drop-shadow-[0_0_14px_rgba(255,0,150,0.5)] mb-2"
+        className="w-32 sm:w-40 animate-pulse drop-shadow-[0_0_14px_rgba(255,0,150,0.5)] mb-2"
       />
 
-      {/* Estructura horizontal con paneles laterales */}
-      <div className="flex flex-row items-center justify-center gap-10 w-full mt-4">
-        {/* Tablero y turno */}
+      {/* Panel adaptable */}
+      <div className="flex flex-col sm:flex-row items-center justify-center gap-10 w-full mt-4">
         <div className="flex flex-col items-center gap-3">
           <motion.div
             className="text-base font-semibold text-white tracking-wide animate-pulse mb-1"
@@ -75,12 +72,13 @@ const GameBoard = ({ players, scores, setScores, setWinner }) => {
             🔹 Turno de: {players[turn]}
           </motion.div>
 
-          <div className="grid grid-cols-3 gap-5">
+          {/* Tablero responsive */}
+          <div className="grid grid-cols-3 gap-2 aspect-square w-full max-w-xs sm:max-w-md p-4 sm:p-8 mx-auto">
             {board.map((cell, i) => (
               <motion.div
                 key={i}
                 onClick={() => handleClick(i)}
-                className={`w-24 h-24 flex items-center justify-center rounded-xl cursor-pointer transition-all duration-300
+                className={`w-20 h-20 sm:w-24 sm:h-24 flex items-center justify-center rounded-xl cursor-pointer transition-all duration-300
                   bg-gradient-to-br from-gray-900 via-cyan-900 to-purple-900
                   border-4 border-cyan-400/60 ring-2 ring-pink-400/40
                   hover:scale-[1.07] hover:ring-4 hover:ring-cyan-300
